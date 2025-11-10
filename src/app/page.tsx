@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import ProjectCard from '@/components/ProjectCard';
 import ProjectFilter from '@/components/ProjectFilter';
+import TechStack from '@/components/TechStack';
 import { projects } from '@/data/projects';
 import { ProjectCategory } from '@/types/project';
 
@@ -19,51 +20,98 @@ export default function Home() {
   });
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="mb-16 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          Daniel Hasiando Sinaga
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-4">
-          Full Stack Developer | Mobile Developer
-        </p>
-        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Passionate about building modern web applications, mobile apps, and scalable backend systems.
-          Experienced in various technologies including React, Next.js, Node.js, Flutter, and more.
-        </p>
-        <div className="mt-8 flex gap-4 justify-center">
-          <a 
-            href="https://github.com/yourusername" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="px-6 py-3 bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-800 rounded-lg hover:bg-gray-700 dark:hover:bg-gray-300 transition-colors"
-          >
-            GitHub
-          </a>
-          <a 
-            href="mailto:daniel.sinaga.ds@gmail.com"
-            className="px-6 py-3 border-2 border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-          >
-            Contact Me
-          </a>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 text-center relative z-10 animate-fadeIn">
+          <div className="inline-block mb-4 px-4 py-2 glass rounded-full text-sm text-gray-300">
+            👋 Welcome to my portfolio
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 gradient-text">
+            Daniel Hasiando Sinaga
+          </h1>
+          
+          <div className="mb-8 space-y-2">
+            <p className="text-2xl md:text-3xl text-white font-semibold">
+              Full Stack Developer
+            </p>
+            <p className="text-xl md:text-2xl text-gray-400">
+              Crafting Digital Experiences with Code
+            </p>
+          </div>
+
+          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
+            Passionate about building modern web applications, mobile apps, and scalable backend systems.
+            Transforming ideas into elegant solutions with cutting-edge technologies.
+          </p>
+
+          <div className="flex flex-wrap gap-4 justify-center mb-16">
+            <a 
+              href="#projects"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all hover:scale-105 font-semibold"
+            >
+              View My Work
+            </a>
+            <a 
+              href="https://github.com/yourusername" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 glass text-white rounded-full hover:bg-white/20 transition-all hover:scale-105 font-semibold"
+            >
+              GitHub Profile
+            </a>
+            <a 
+              href="mailto:daniel.sinaga.ds@gmail.com"
+              className="px-8 py-4 glass text-white rounded-full hover:bg-white/20 transition-all hover:scale-105 font-semibold"
+            >
+              Get in Touch
+            </a>
+          </div>
+
+          {/* Tech Stack Showcase */}
+          <TechStack />
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section>
-        <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
+      <section id="projects" className="container mx-auto px-4 py-20">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Featured Projects</h2>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Explore my portfolio of web applications, mobile apps, and backend systems
+          </p>
+        </div>
         
         {/* Search and Filter */}
-        <div className="mb-8 space-y-4">
-          <div className="max-w-md mx-auto">
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-gray-800"
-            />
+        <div className="mb-12 space-y-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search projects by name, technology, or description..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-6 py-4 glass-strong rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 transition-all"
+              />
+              <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
           </div>
           
           <ProjectFilter 
@@ -73,52 +121,73 @@ export default function Home() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map(project => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredProjects.map((project, index) => (
+            <div 
+              key={project.id}
+              className="animate-fadeIn"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <ProjectCard project={project} />
+            </div>
           ))}
         </div>
 
         {filteredProjects.length === 0 && (
-          <div className="text-center py-16 text-gray-500 dark:text-gray-400">
-            No projects found matching your criteria.
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🔍</div>
+            <p className="text-gray-400 text-lg">No projects found matching your criteria.</p>
+            <button 
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedCategory('all');
+              }}
+              className="mt-4 px-6 py-2 glass rounded-lg hover:bg-white/20 transition-all"
+            >
+              Clear Filters
+            </button>
           </div>
         )}
       </section>
 
       {/* Stats Section */}
-      <section className="mt-16 py-12 bg-gray-100 dark:bg-gray-800 rounded-lg">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div>
-            <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
-              {projects.length}
+      <section id="skills" className="container mx-auto px-4 py-20">
+        <div className="glass-strong rounded-3xl p-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">
+            Portfolio Statistics
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center group">
+              <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
+                {projects.length}
+              </div>
+              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+                Projects Completed
+              </div>
             </div>
-            <div className="text-gray-600 dark:text-gray-300 mt-2">
-              Projects
+            <div className="text-center group">
+              <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
+                {new Set(projects.flatMap(p => p.technologies)).size}+
+              </div>
+              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+                Technologies Used
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-              {new Set(projects.flatMap(p => p.technologies)).size}
+            <div className="text-center group">
+              <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
+                {projects.filter(p => p.liveUrl).length}
+              </div>
+              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+                Live Deployments
+              </div>
             </div>
-            <div className="text-gray-600 dark:text-gray-300 mt-2">
-              Technologies
-            </div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-green-600 dark:text-green-400">
-              {projects.filter(p => p.liveUrl).length}
-            </div>
-            <div className="text-gray-600 dark:text-gray-300 mt-2">
-              Live Demos
-            </div>
-          </div>
-          <div>
-            <div className="text-4xl font-bold text-orange-600 dark:text-orange-400">
-              {new Set(projects.map(p => p.category)).size}
-            </div>
-            <div className="text-gray-600 dark:text-gray-300 mt-2">
-              Categories
+            <div className="text-center group">
+              <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
+                {new Set(projects.map(p => p.category)).size}
+              </div>
+              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+                Categories
+              </div>
             </div>
           </div>
         </div>
