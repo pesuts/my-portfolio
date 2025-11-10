@@ -12,7 +12,7 @@ export default function Footer() {
           {/* About */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold gradient-text">Daniel Hasiando Sinaga</h3>
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-gray-600 dark:text-white leading-relaxed">
               Full Stack Developer passionate about creating modern web and mobile applications with cutting-edge technologies.
             </p>
             <div className="flex space-x-4">
@@ -46,25 +46,25 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 text-gray-800 dark:text-white">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center gap-2 transition-all">
+                <Link href="/" className="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:translate-x-1 inline-flex items-center gap-2 transition-all">
                   <HiArrowRight className="text-sm" /> Home
                 </Link>
               </li>
               <li>
-                <Link href="/#projects" className="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center gap-2 transition-all">
+                <Link href="/#projects" className="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:translate-x-1 inline-flex items-center gap-2 transition-all">
                   <HiArrowRight className="text-sm" /> Projects
                 </Link>
               </li>
               <li>
-                <Link href="/#skills" className="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center gap-2 transition-all">
+                <Link href="/#skills" className="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:translate-x-1 inline-flex items-center gap-2 transition-all">
                   <HiArrowRight className="text-sm" /> Skills
                 </Link>
               </li>
               <li>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:translate-x-1 inline-flex items-center gap-2 transition-all">
+                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:translate-x-1 inline-flex items-center gap-2 transition-all">
                   <HiArrowRight className="text-sm" /> GitHub
                 </a>
               </li>
@@ -73,8 +73,8 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-white">Stay Connected</h3>
-            <p className="text-gray-400 mb-4 text-sm">
+            <h3 className="text-lg font-bold mb-4 text-gray-900 dark:text-white">Stay Connected</h3>
+            <p className="text-gray-600 dark:text-white mb-4 text-sm">
               Get in touch for collaborations or just a friendly hello!
             </p>
             <a 
@@ -87,10 +87,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-600 dark:text-white text-sm">
             &copy; {currentYear} Daniel Hasiando Sinaga. All rights reserved.
           </p>
-          <p className="text-gray-400 text-sm flex items-center gap-2">
+          <p className="text-gray-600 dark:text-white text-sm flex items-center gap-2">
             Built with <FaHeart className="text-red-500 animate-pulse" /> using 
             <span className="gradient-text font-semibold">Next.js & Tailwind CSS</span>
           </p>

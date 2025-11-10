@@ -24,7 +24,7 @@ export default function ProjectFilter({ selectedCategory, onCategoryChange }: Pr
           className={`group px-6 py-3 rounded-xl transition-all font-medium ${
             selectedCategory === category.value
               ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/50 scale-105'
-              : 'glass text-gray-300 hover:bg-white/20 hover:text-white hover:scale-105'
+              : 'glass text-gray-700 dark:text-white hover:bg-gray-200/80 dark:hover:bg-white/20 hover:text-gray-900 dark:hover:text-gray-200 hover:scale-105'
           }`}
         >
           <span className="flex items-center gap-2">

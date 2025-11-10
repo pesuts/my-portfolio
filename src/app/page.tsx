@@ -31,7 +31,7 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 text-center relative z-10 animate-fadeIn">
-          <div className="inline-block mb-4 px-4 py-2 glass rounded-full text-sm text-gray-300">
+          <div className="inline-block mb-4 px-4 py-2 glass rounded-full text-sm text-gray-700 dark:text-white">
             👋 Welcome to my portfolio
           </div>
           
@@ -40,20 +40,20 @@ export default function Home() {
           </h1>
           
           <div className="mb-8 space-y-2">
-            <p className="text-2xl md:text-3xl text-white font-semibold">
+            <p className="text-2xl md:text-3xl text-gray-900 dark:text-white font-semibold">
               Full Stack Developer
             </p>
-            <p className="text-xl md:text-2xl text-gray-400">
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-white">
               Crafting Digital Experiences with Code
             </p>
           </div>
 
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="text-gray-700 dark:text-white text-lg max-w-3xl mx-auto mb-12 leading-relaxed">
             Passionate about building modern web applications, mobile apps, and scalable backend systems.
             Transforming ideas into elegant solutions with cutting-edge technologies.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center mb-16">
+                    <div className="flex flex-wrap gap-4 justify-center mb-16">
             <a 
               href="#projects"
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all hover:scale-105 font-semibold"
@@ -64,13 +64,13 @@ export default function Home() {
               href="https://github.com/yourusername" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="px-8 py-4 glass text-white rounded-full hover:bg-white/20 transition-all hover:scale-105 font-semibold"
+              className="px-8 py-4 glass text-gray-900 dark:text-white rounded-full hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all hover:scale-105 font-semibold"
             >
               GitHub Profile
             </a>
             <a 
               href="mailto:daniel.sinaga.ds@gmail.com"
-              className="px-8 py-4 glass text-white rounded-full hover:bg-white/20 transition-all hover:scale-105 font-semibold"
+              className="px-8 py-4 glass text-gray-900 dark:text-white rounded-full hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all hover:scale-105 font-semibold"
             >
               Get in Touch
             </a>
@@ -81,7 +81,7 @@ export default function Home() {
 
           {/* Scroll indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-gray-500 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </div>
@@ -92,7 +92,7 @@ export default function Home() {
       <section id="projects" className="container mx-auto px-4 py-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">Featured Projects</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-white text-lg max-w-2xl mx-auto">
             Explore my portfolio of web applications, mobile apps, and backend systems
           </p>
         </div>
@@ -106,9 +106,9 @@ export default function Home() {
                 placeholder="Search projects by name, technology, or description..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-6 py-4 glass-strong rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 transition-all"
+                className="w-full px-6 py-4 glass-strong rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-white transition-all"
               />
-              <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
@@ -136,13 +136,13 @@ export default function Home() {
         {filteredProjects.length === 0 && (
           <div className="text-center py-20">
             <div className="text-6xl mb-4">🔍</div>
-            <p className="text-gray-400 text-lg">No projects found matching your criteria.</p>
+            <p className="text-gray-600 dark:text-white text-lg">No projects found matching your criteria.</p>
             <button 
               onClick={() => {
                 setSearchQuery('');
                 setSelectedCategory('all');
               }}
-              className="mt-4 px-6 py-2 glass rounded-lg hover:bg-white/20 transition-all"
+              className="mt-4 px-6 py-2 glass rounded-lg text-gray-900 dark:text-white hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all"
             >
               Clear Filters
             </button>
@@ -161,7 +161,7 @@ export default function Home() {
               <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
                 {projects.length}
               </div>
-              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+              <div className="text-gray-600 dark:text-white text-sm md:text-base uppercase tracking-wider">
                 Projects Completed
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Home() {
               <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
                 {new Set(projects.flatMap(p => p.technologies)).size}+
               </div>
-              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+              <div className="text-gray-600 dark:text-white text-sm md:text-base uppercase tracking-wider">
                 Technologies Used
               </div>
             </div>
@@ -177,7 +177,7 @@ export default function Home() {
               <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
                 {projects.filter(p => p.liveUrl).length}
               </div>
-              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+              <div className="text-gray-600 dark:text-white text-sm md:text-base uppercase tracking-wider">
                 Live Deployments
               </div>
             </div>
@@ -185,7 +185,7 @@ export default function Home() {
               <div className="text-5xl md:text-6xl font-bold mb-3 bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform">
                 {new Set(projects.map(p => p.category)).size}
               </div>
-              <div className="text-gray-400 text-sm md:text-base uppercase tracking-wider">
+              <div className="text-gray-600 dark:text-white text-sm md:text-base uppercase tracking-wider">
                 Categories
               </div>
             </div>

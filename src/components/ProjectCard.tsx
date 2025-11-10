@@ -99,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <div className="w-full h-full flex items-center justify-center">
             <div className="text-center">
               <div className="text-6xl mb-2">{categoryIcons[project.category]}</div>
-              <div className="text-sm text-gray-400">{project.title}</div>
+              <div className="text-sm text-gray-700 dark:text-white">{project.title}</div>
             </div>
           </div>
         )}
@@ -113,7 +113,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         {/* Year Badge */}
         <div className="absolute bottom-4 left-4">
-          <span className="inline-flex items-center gap-1 px-3 py-1 glass rounded-full text-xs text-gray-300">
+          <span className="inline-flex items-center gap-1 px-3 py-1 glass rounded-full text-xs text-gray-700 dark:text-white">
             <HiClock className="text-sm" />
             {project.year}
           </span>
@@ -123,12 +123,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Content */}
       <div className="p-6 flex-1 flex flex-col">
         {/* Title */}
-        <h3 className="text-xl font-bold mb-3 text-white group-hover:gradient-text transition-all">
+        <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:gradient-text transition-all">
           {project.title}
         </h3>
 
         {/* Description */}
-        <p className="text-gray-400 text-sm mb-4 line-clamp-2 leading-relaxed">
+        <p className="text-gray-600 dark:text-white text-sm mb-4 line-clamp-2 leading-relaxed">
           {project.description}
         </p>
 
@@ -141,7 +141,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             return (
               <span
                 key={tech}
-                className="group/tech px-3 py-1.5 glass rounded-lg text-gray-300 text-xs hover:bg-white/20 transition-all flex items-center gap-1.5"
+                className="group/tech px-3 py-1.5 glass rounded-lg text-gray-700 dark:text-white text-xs hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all flex items-center gap-1.5"
                 title={tech}
               >
                 {TechIcon && (
@@ -154,7 +154,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.technologies.length > 3 && (
             <button
               onClick={() => setShowAllTech(!showAllTech)}
-              className="px-3 py-1.5 glass rounded-lg text-blue-400 text-xs hover:bg-white/20 transition-all cursor-pointer group/more flex items-center gap-1"
+              className="px-3 py-1.5 glass rounded-lg text-blue-600 dark:text-blue-400 text-xs hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all cursor-pointer group/more flex items-center gap-1"
               title={showAllTech ? 'Show less' : `Show ${project.technologies.length - 3} more technologies`}
             >
               {showAllTech ? (
@@ -173,8 +173,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <div className="mb-4 flex-1">
             <div className="space-y-2">
               {project.features.slice(0, 2).map((feature, index) => (
-                <div key={index} className="flex items-start gap-2 text-xs text-gray-400">
-                  <HiCheckCircle className="text-blue-400 mt-0.5 flex-shrink-0" />
+                <div key={index} className="flex items-start gap-2 text-xs text-gray-600 dark:text-white">
+                  <HiCheckCircle className="text-blue-500 dark:text-blue-400 mt-0.5 shrink-0" />
                   <span className="line-clamp-1">{feature}</span>
                 </div>
               ))}
@@ -188,7 +188,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 px-4 py-2.5 glass text-white rounded-xl hover:bg-white/20 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
+            className="flex-1 px-4 py-2.5 glass text-gray-900 dark:text-white rounded-xl hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
           >
             <SiGithub 
                 className={`text-xl red group-hover:scale-125 transition-transform duration-300`}

@@ -39,7 +39,7 @@ const techStackData = [
 export default function TechStack() {
   return (
     <div className="max-w-5xl mx-auto glass-strong rounded-2xl p-8">
-      <p className="text-gray-400 mb-8 text-sm uppercase tracking-wider text-center">
+      <p className="text-gray-600 dark:text-white mb-8 text-sm uppercase tracking-wider text-center">
         Tech Stack I Work With
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -48,12 +48,12 @@ export default function TechStack() {
           return (
             <div 
               key={tech.name}
-              className="group flex flex-col items-center gap-3 p-4 glass rounded-xl hover:bg-white/20 transition-all cursor-default hover:scale-110"
+              className="group flex flex-col items-center gap-3 p-4 glass rounded-xl hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all cursor-default hover:scale-110"
             >
               <Icon 
                 className={`text-4xl ${tech.color} group-hover:scale-125 transition-transform duration-300`}
               />
-              <span className="text-xs text-gray-400 group-hover:text-white transition-colors text-center">
+              <span className="text-xs text-gray-600 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors text-center">
                 {tech.name}
               </span>
             </div>

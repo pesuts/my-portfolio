@@ -8,6 +8,15 @@
   --color-accent: #06b6d4;
 }
 
+/* Light mode overrides when `.light` class is present on <body> */
+body.light {
+  --color-background: #f8fafc;
+  --color-foreground: #0f172a;
+  --color-primary: #2563eb;
+  --color-secondary: #7c3aed;
+  --color-accent: #0891b2;
+}
+
 body {
   color: var(--color-foreground);
   background: var(--color-background);
@@ -15,7 +24,23 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated gradient background */
+/* Force white text in dark mode - Default state without .light class */
+body:not(.light),
+html.dark body {
+  color: #f9fafb;
+}
+
+/* Ensure text elements inherit and are visible in dark mode */
+body:not(.light) *:not(.gradient-text):not(svg):not(path) {
+  color: inherit;
+}
+
+/* Override Tailwind's default dark mode text colors */
+.dark {
+  color: #f9fafb;
+}
+
+/* Animated gradient background - Dark mode (default) */
 body::before {
   content: '';
   position: fixed;
@@ -39,6 +64,15 @@ body::after {
   z-index: -1;
 }
 
+/* Animated gradient background - Light mode */
+body.light::before {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+}
+
+body.light::after {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -49,7 +83,7 @@ body::after {
   }
 }
 
-/* Glassmorphism utility classes */
+/* Glassmorphism utility classes - Dark mode (default) */
 .glass {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -61,12 +95,35 @@ body::after {
   backdrop-filter: blur(20px);
 }
 
+/* Make sure text inside glass is visible in dark mode */
+body:not(.light) .glass,
+body:not(.light) .glass-strong,
+html.dark .glass,
+html.dark .glass-strong {
+  color: #f9fafb;
+}
+
+/* Light-mode glass adjustments */
+body.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+body.light .glass-strong {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(16px);
+}
+
 /* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Dark mode */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -81,6 +138,19 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2563eb, #7c3aed);
+}
+
+/* Custom scrollbar - Light mode */
+body.light::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+body.light::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+}
+
+body.light::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #2563eb, #7c3aed);
 }
 
@@ -183,34 +253,3 @@ html {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-track {
-    background: #1a1a1a;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #4a4a4a;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #666;
-  }
-}
