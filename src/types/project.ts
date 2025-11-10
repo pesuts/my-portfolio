@@ -3,7 +3,7 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  category: 'fullstack' | 'backend' | 'frontend' | 'mobile' | 'other';
+  category: 'fullstack' | 'backend' | 'frontend' | 'mobile' | 'data-engineering' | 'other';
   githubUrl: string;
   liveUrl?: string;
   screenshots: string[];

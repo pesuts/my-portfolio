@@ -11,7 +11,8 @@ import {
   SiPostgresql, SiMongodb, SiMysql, SiSqlite, SiRedis, SiFirebase,
   SiDocker, SiGit, SiTailwindcss, SiBootstrap, SiHtml5, SiCss3,
   SiPhp, SiPython, SiLaravel, SiVuedotjs, SiAngular, SiJquery,
-  SiVercel, SiNetlify, SiHeroku, SiAmazonwebservices, SiGooglecloud
+  SiVercel, SiNetlify, SiHeroku, SiAmazonwebservices, SiGooglecloud,
+  SiApachespark, SiApacheairflow, SiVite, SiJest, SiAxios
 } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
@@ -24,6 +25,7 @@ const categoryColors = {
   backend: 'from-green-500 to-emerald-500',
   frontend: 'from-blue-500 to-cyan-500',
   mobile: 'from-orange-500 to-red-500',
+  'data-engineering': 'from-indigo-500 to-purple-600',
   other: 'from-gray-500 to-slate-500',
 };
 
@@ -32,6 +34,7 @@ const categoryIcons = {
   backend: '⚙️',
   frontend: '🎨',
   mobile: '📱',
+  'data-engineering': '📊',
   other: '💡',
 };
 
@@ -76,6 +79,23 @@ const techIcons: Record<string, { icon: IconType; color: string }> = {
   'Heroku': { icon: SiHeroku, color: 'text-purple-500' },
   'AWS': { icon: SiAmazonwebservices, color: 'text-orange-400' },
   'GCP': { icon: SiGooglecloud, color: 'text-blue-400' },
+  'Apache Spark': { icon: SiApachespark, color: 'text-orange-500' },
+  'Apache Airflow': { icon: SiApacheairflow, color: 'text-cyan-400' },
+  'Airflow': { icon: SiApacheairflow, color: 'text-cyan-400' },
+  'Pentaho': { icon: SiDocker, color: 'text-blue-500' },
+  'Google Cloud Storage': { icon: SiGooglecloud, color: 'text-blue-400' },
+  'BigQuery': { icon: SiGooglecloud, color: 'text-blue-500' },
+  'Vite': { icon: SiVite, color: 'text-purple-500' },
+  'Jest': { icon: SiJest, color: 'text-red-500' },
+  'Axios': { icon: SiAxios, color: 'text-purple-400' },
+  'React Router': { icon: SiReact, color: 'text-cyan-400' },
+  'Recharts': { icon: SiReact, color: 'text-cyan-500' },
+  'React Hook Form': { icon: SiReact, color: 'text-pink-400' },
+  'Midtrans API': { icon: SiPhp, color: 'text-green-500' },
+  'Bootstrap 5': { icon: SiBootstrap, color: 'text-purple-500' },
+  'DomPDF': { icon: SiPhp, color: 'text-red-400' },
+  'League CSV': { icon: SiPhp, color: 'text-purple-400' },
+  'Laravel UI': { icon: SiLaravel, color: 'text-red-500' },
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
@@ -106,7 +126,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         
         {/* Category Badge */}
         <div className="absolute top-4 right-4">
-          <span className={`inline-flex items-center gap-1 px-3 py-1.5 glass-strong rounded-full text-xs font-semibold text-white backdrop-blur-md`}>
+          <span className={`inline-flex items-center gap-1 px-3 py-1.5 glass-strong rounded-full text-xs font-semibold text-indigo-800 dark:text-white backdrop-blur-md`}>
             {categoryIcons[project.category]} {project.category.toUpperCase()}
           </span>
         </div>

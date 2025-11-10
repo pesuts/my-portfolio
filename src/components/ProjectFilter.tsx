@@ -11,6 +11,7 @@ const categories: { value: ProjectCategory; label: string; icon: string }[] = [
   { value: 'backend', label: 'Backend', icon: '⚙️' },
   { value: 'frontend', label: 'Frontend', icon: '🎨' },
   { value: 'mobile', label: 'Mobile', icon: '📱' },
+  { value: 'data-engineering', label: 'Data Engineering', icon: '📊' },
   { value: 'other', label: 'Other', icon: '💡' },
 ];
 

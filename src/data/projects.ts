@@ -2,12 +2,29 @@ import { Project } from '@/types/project';
 
 export const projects: Project[] = [
   {
+    id: 'umkm-portal',
+    title: 'Web Portal UMKM',
+    description: 'Platform web untuk UMKM (Usaha Mikro Kecil Menengah) untuk menampilkan produk dan layanan mereka secara online.',
+    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
+    category: 'fullstack',
+    githubUrl: 'https://github.com/pesuts/umkm-portal',
+    liveUrl: 'https://your-bcr-app.netlify.app',
+    screenshots: ['/screenshots/umkm-1.png'],
+    features: [
+      'Katalog produk UMKM',
+      'Sistem manajemen konten',
+      'Dashboard admin',
+      'Responsive design'
+    ],
+    year: 2024
+  },
+  {
     id: 'bcr-api-docs',
     title: 'BCR - Car Rental API Documentation',
     description: 'RESTful API untuk sistem rental mobil dengan dokumentasi OpenAPI lengkap. Mengimplementasikan autentikasi berbasis role (superadmin, admin, member) dan CRUD operations untuk manajemen data mobil dengan audit trail.',
     technologies: ['TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Knex.js', 'OpenAPI', 'Swagger'],
     category: 'backend',
-    githubUrl: 'https://github.com/yourusername/bcr-api-docs',
+    githubUrl: 'https://github.com/pesuts/bcr-api-docs',
     screenshots: ['/screenshots/bcr-api-1.png'],
     features: [
       'Autentikasi multi-role (superadmin, admin, member)',
@@ -36,6 +53,123 @@ export const projects: Project[] = [
     year: 2024
   },
   {
+    id: 'bcr-react',
+    title: 'BCR - Car Rental Web App',
+    description: 'Frontend web application untuk sistem rental mobil menggunakan React dan TypeScript. Terintegrasi dengan backend API untuk manajemen pemesanan mobil.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Jest', 'React Testing Library'],
+    category: 'frontend',
+    githubUrl: 'https://github.com/pesuts/bcr-react',
+    liveUrl: 'https://your-bcr-app.netlify.app',
+    screenshots: ['/screenshots/bcr-react-1.png', '/screenshots/bcr-react-2.png'],
+    features: [
+      'Responsive UI dengan Tailwind CSS',
+      'Unit testing dengan Jest',
+      'TypeScript untuk type safety',
+      'Integration dengan BCR API',
+      'Modern React hooks'
+    ],
+    year: 2024
+  },
+  {
+    id: 'earthquake-dataset-elt',
+    title: 'Earthquake Dataset - ETL Data Engineering',
+    description: 'Proyek Data Engineering untuk melakukan proses ETL (Extract, Transform, Load) pada dataset gempa bumi. Data gempa diintegrasikan dengan data demografi, geologi, infrastruktur, dan historis menggunakan arsitektur modern data warehouse.',
+    technologies: ['Python', 'Apache Spark', 'Apache Airflow', 'Pentaho', 'PostgreSQL', 'Google Cloud Storage', 'BigQuery'],
+    category: 'data-engineering',
+    githubUrl: 'https://github.com/pesuts/earthquake-dataset-elt',
+    screenshots: ['/screenshots/earthquake-1.png', '/screenshots/earthquake-2.png'],
+    features: [
+      'ETL Pipeline dengan Pentaho untuk ekstraksi data CSV',
+      'Data transformation menggunakan Apache Spark',
+      'Star schema data warehouse design',
+      'Automated ETL orchestration dengan Apache Airflow',
+      'Cloud storage di Google Cloud Storage (GCS)',
+      'Data warehouse di Google BigQuery',
+      'Dashboard visualisasi data gempa'
+    ],
+    year: 2024
+  },
+  {
+    id: 'fsw-fe',
+    title: 'FSW Frontend - Collaborative React Project',
+    description: 'Proyek kolaborasi frontend menggunakan React dan TypeScript. Bertanggung jawab untuk mengembangkan komponen-komponen tertentu dalam aplikasi web modern dengan focus pada user experience dan performance.',
+    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'React Router', 'Axios', 'Recharts', 'Jest'],
+    category: 'frontend',
+    githubUrl: 'https://github.com/pesuts/fsw-fe',
+    liveUrl: 'https://banksatu.fly.dev',
+    screenshots: ['/screenshots/fsw-1.png', '/screenshots/fsw-2.png'],
+    features: [
+      'Modern React dengan TypeScript',
+      'Responsive UI dengan Tailwind CSS',
+      'Data visualization dengan Recharts',
+      'Form handling dengan React Hook Form',
+      'Unit testing dengan Jest',
+      'PDF export functionality',
+      'SweetAlert2 untuk notifikasi',
+      'React Router untuk navigasi'
+    ],
+    year: 2024
+  },
+  {
+    id: 'e-commerce-laravel',
+    title: 'E-Commerce - Laravel Online Store',
+    description: 'Platform e-commerce lengkap yang dibangun dengan Laravel 10. Bertanggung jawab untuk menambahkan beberapa fitur penting termasuk integrasi payment gateway Midtrans, export data ke PDF/CSV, dan pengembangan beberapa modul sistem.',
+    technologies: ['Laravel', 'PHP', 'MySQL', 'Bootstrap', 'JavaScript', 'Midtrans API', 'DomPDF', 'Vite'],
+    category: 'fullstack',
+    githubUrl: 'https://github.com/pesuts/e-commerce',
+    screenshots: ['/screenshots/ecommerce-1.png', '/screenshots/ecommerce-2.png'],
+    features: [
+      'Sistem autentikasi dengan Laravel UI',
+      'Shopping cart dan checkout process',
+      'Integrasi Midtrans payment gateway',
+      'Admin dashboard untuk manajemen produk',
+      'Export data ke PDF dengan DomPDF',
+      'Export data ke CSV dengan League CSV',
+      'Manajemen kategori dan produk',
+      'Order management system',
+      'User profile management'
+    ],
+    year: 2024
+  },
+  {
+    id: 'news-scraper',
+    title: 'Indonesia News Scraper',
+    description: 'Web scraper untuk mengumpulkan berita dari berbagai sumber media Indonesia. Menggunakan Python untuk scraping dan validasi data dengan penyimpanan dalam format JSON.',
+    technologies: ['Python', 'Web Scraping', 'BeautifulSoup', 'Requests'],
+    category: 'backend',
+    githubUrl: 'https://github.com/pesuts/news-scraper',
+    screenshots: ['/screenshots/news-scraper-1.png'],
+    features: [
+      'Multi-source news scraping',
+      'Data validation',
+      'JSON data storage',
+      'Automated scraping manager'
+    ],
+    year: 2024
+  },
+  {
+    id: 'todo-location-app',
+    title: 'Todo App with Location',
+    description: 'Aplikasi Android untuk manajemen todo list dengan integrasi lokasi menggunakan Google Maps. Dibangun dengan Kotlin dan Firebase.',
+    technologies: ['Kotlin', 'Android', 'Firebase', 'Google Maps API', 'Room Database'],
+    category: 'mobile',
+    githubUrl: 'https://github.com/pesuts/todo-location-app',
+    screenshots: [
+      '/screenshots/todo-app-1.png',
+      '/screenshots/todo-app-2.png',
+      '/screenshots/todo-app-3.png',
+      '/screenshots/todo-app-4.png'
+    ],
+    features: [
+      'CRUD Todo items',
+      'Integrasi Google Maps',
+      'Location-based reminders',
+      'Firebase sync',
+      'Material Design UI'
+    ],
+    year: 2024
+  },
+  {
     id: 'sibas-news-app',
     title: 'SIBAS News - Mobile News App',
     description: 'Aplikasi berita mobile berbasis Flutter dengan Firebase Authentication. Menampilkan berita dari berbagai kategori dengan fitur WebView untuk detail artikel dan manajemen profil pengguna.',
@@ -59,63 +193,12 @@ export const projects: Project[] = [
     year: 2024
   },
   {
-    id: 'news-scraper',
-    title: 'Indonesia News Scraper',
-    description: 'Web scraper untuk mengumpulkan berita dari berbagai sumber media Indonesia. Menggunakan Python untuk scraping dan validasi data dengan penyimpanan dalam format JSON.',
-    technologies: ['Python', 'Web Scraping', 'BeautifulSoup', 'Requests'],
-    category: 'backend',
-    githubUrl: 'https://github.com/yourusername/news-scraper',
-    screenshots: ['/screenshots/news-scraper-1.png'],
-    features: [
-      'Multi-source news scraping',
-      'Data validation',
-      'JSON data storage',
-      'Automated scraping manager'
-    ],
-    year: 2024
-  },
-  {
-    id: 'openmusic-api-v3',
-    title: 'OpenMusic API v3',
-    description: 'RESTful API untuk platform streaming musik dengan fitur manajemen lagu, album, playlist, dan kolaborasi antar pengguna.',
-    technologies: ['Node.js', 'Hapi.js', 'PostgreSQL', 'JWT', 'Redis'],
-    category: 'backend',
-    githubUrl: 'https://github.com/yourusername/openmusicapiv3',
-    screenshots: ['/screenshots/openmusic-1.png'],
-    features: [
-      'Manajemen lagu dan album',
-      'Playlist pribadi dan kolaborasi',
-      'JWT Authentication',
-      'Caching dengan Redis',
-      'Export playlist ke JSON'
-    ],
-    year: 2024
-  },
-  {
-    id: 'bcr-react',
-    title: 'BCR - Car Rental Web App',
-    description: 'Frontend web application untuk sistem rental mobil menggunakan React dan TypeScript. Terintegrasi dengan backend API untuk manajemen pemesanan mobil.',
-    technologies: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Jest', 'React Testing Library'],
-    category: 'frontend',
-    githubUrl: 'https://github.com/yourusername/bcr-react',
-    liveUrl: 'https://your-bcr-app.netlify.app',
-    screenshots: ['/screenshots/bcr-react-1.png', '/screenshots/bcr-react-2.png'],
-    features: [
-      'Responsive UI dengan Tailwind CSS',
-      'Unit testing dengan Jest',
-      'TypeScript untuk type safety',
-      'Integration dengan BCR API',
-      'Modern React hooks'
-    ],
-    year: 2024
-  },
-  {
     id: 'financial-app',
     title: 'Bank Management System',
     description: 'Aplikasi web manajemen perbankan dengan fitur buka rekening, transaksi, pinjaman, investasi, dan perencanaan keuangan (dream account).',
     technologies: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
     category: 'fullstack',
-    githubUrl: 'https://github.com/yourusername/financial-app',
+    githubUrl: 'https://github.com/pesuts/financial-app',
     screenshots: ['/screenshots/bank-1.png'],
     features: [
       'Sistem autentikasi pengguna',
@@ -128,24 +211,19 @@ export const projects: Project[] = [
     year: 2023
   },
   {
-    id: 'todo-location-app',
-    title: 'Todo App with Location',
-    description: 'Aplikasi Android untuk manajemen todo list dengan integrasi lokasi menggunakan Google Maps. Dibangun dengan Kotlin dan Firebase.',
-    technologies: ['Kotlin', 'Android', 'Firebase', 'Google Maps API', 'Room Database'],
-    category: 'mobile',
-    githubUrl: 'https://github.com/yourusername/todo-location-app',
-    screenshots: [
-      '/screenshots/todo-app-1.png',
-      '/screenshots/todo-app-2.png',
-      '/screenshots/todo-app-3.png',
-      '/screenshots/todo-app-4.png'
-    ],
+    id: 'openmusic-api-v3',
+    title: 'OpenMusic API v3',
+    description: 'RESTful API untuk platform streaming musik dengan fitur manajemen lagu, album, playlist, dan kolaborasi antar pengguna.',
+    technologies: ['Node.js', 'Hapi.js', 'PostgreSQL', 'JWT', 'Redis'],
+    category: 'backend',
+    githubUrl: 'https://github.com/pesuts/openmusicapiv3',
+    screenshots: ['/screenshots/openmusic-1.png'],
     features: [
-      'CRUD Todo items',
-      'Integrasi Google Maps',
-      'Location-based reminders',
-      'Firebase sync',
-      'Material Design UI'
+      'Manajemen lagu dan album',
+      'Playlist pribadi dan kolaborasi',
+      'JWT Authentication',
+      'Caching dengan Redis',
+      'Export playlist ke JSON'
     ],
     year: 2024
   },
@@ -155,7 +233,7 @@ export const projects: Project[] = [
     description: 'Implementasi berbagai algoritma kriptografi untuk enkripsi dan dekripsi data. Project tugas akhir mata kuliah Kriptografi.',
     technologies: ['Python', 'Cryptography', 'AES', 'RSA'],
     category: 'other',
-    githubUrl: 'https://github.com/yourusername/crypto-final',
+    githubUrl: 'https://github.com/pesuts/crypto-final',
     screenshots: ['/screenshots/crypto-1.png'],
     features: [
       'Implementasi algoritma enkripsi klasik',
@@ -165,22 +243,6 @@ export const projects: Project[] = [
     ],
     year: 2024
   },
-  {
-    id: 'umkm-portal',
-    title: 'Web Portal UMKM',
-    description: 'Platform web untuk UMKM (Usaha Mikro Kecil Menengah) untuk menampilkan produk dan layanan mereka secara online.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-    category: 'fullstack',
-    githubUrl: 'https://github.com/yourusername/umkm-portal',
-    screenshots: ['/screenshots/umkm-1.png'],
-    features: [
-      'Katalog produk UMKM',
-      'Sistem manajemen konten',
-      'Dashboard admin',
-      'Responsive design'
-    ],
-    year: 2024
-  }
 ];
 
 export const getProjectById = (id: string): Project | undefined => {

@@ -5,19 +5,43 @@ import { useState, useEffect } from 'react';
 import { HiMenu, HiX, HiMoon, HiSun } from 'react-icons/hi';
 import { FaGithub, FaEnvelope } from 'react-icons/fa';
 
+// Helper function to apply theme
+const applyTheme = (t: 'light' | 'dark') => {
+  if (typeof window === 'undefined') return;
+  const doc = document.documentElement;
+  const body = document.body;
+  if (t === 'dark') {
+    doc.classList.add('dark');
+    body.classList.remove('light');
+    try { localStorage.setItem('theme', 'dark'); } catch { }
+  } else {
+    doc.classList.remove('dark');
+    body.classList.add('light');
+    try { localStorage.setItem('theme', 'light'); } catch { }
+  }
+};
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [mounted, setMounted] = useState(false);
+
+  // Initialize theme from localStorage after mount
+  useEffect(() => {
     try {
       const saved = localStorage.getItem('theme');
-      if (saved === 'light' || saved === 'dark') return saved as 'light' | 'dark';
+      if (saved === 'light' || saved === 'dark') {
+        setTheme(saved as 'light' | 'dark');
+        applyTheme(saved as 'light' | 'dark');
+      } else {
+        applyTheme('light');
+      }
     } catch {
-      // ignore
+      applyTheme('light');
     }
-    // Default to dark mode
-    return 'dark';
-  });
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,35 +51,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  function applyTheme(t: 'light' | 'dark') {
-    const doc = document.documentElement;
-    const body = document.body;
-    if (t === 'dark') {
-      doc.classList.add('dark');
-      body.classList.remove('light');
-      try { localStorage.setItem('theme', 'dark'); } catch { }
-    } else {
-      doc.classList.remove('dark');
-      body.classList.add('light');
-      try { localStorage.setItem('theme', 'light'); } catch { }
-    }
-  }
-
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark';
     applyTheme(next as 'light' | 'dark');
     setTheme(next as 'light' | 'dark');
   }
-
-  // Apply current theme to document on mount/update
-  useEffect(() => {
-    if (theme) applyTheme(theme);
-  }, [theme]);
-
-  // Apply theme immediately on mount
-  useEffect(() => {
-    applyTheme(theme);
-  }, []);
 
   return (
     <header 
@@ -76,27 +76,27 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-1">
             <Link 
               href="/" 
-              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-gray-200/80 dark:hover:bg-white/10"
+              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-indigo-200/80 dark:hover:bg-white/10"
             >
               Home
             </Link>
             <Link 
               href="/#projects" 
-              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-gray-200/80 dark:hover:bg-white/10"
+              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-indigo-200/80 dark:hover:bg-white/10"
             >
               Projects
             </Link>
             <Link 
               href="/#skills" 
-              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-gray-200/80 dark:hover:bg-white/10"
+              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-indigo-200/80 dark:hover:bg-white/10"
             >
               Skills
             </Link>
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/pesuts" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-gray-200/80 dark:hover:bg-white/10 flex items-center gap-2"
+              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors rounded-lg hover:bg-indigo-200/80 dark:hover:bg-white/10 flex items-center gap-2"
             >
               <FaGithub className="text-lg" />
               GitHub
@@ -109,18 +109,20 @@ export default function Header() {
               Contact
             </a>
             {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="ml-3 px-3 py-2 rounded-lg glass hover:bg-gray-200/80 dark:hover:bg-white/10 transition-all flex items-center"
-            >
-              {theme === 'dark' ? <HiSun className="w-5 h-5 text-yellow-400" /> : <HiMoon className="w-5 h-5 text-indigo-600" />}
-            </button>
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+                className="ml-3 px-3 py-2 rounded-lg text-gray-700 dark:text-white hover:bg-indigo-200/80 dark:hover:bg-white/10 transition-all flex items-center hover:scale-110 cursor-pointer"
+              >
+                {theme === 'dark' ? <HiSun className="w-5 h-5 text-yellow-400" /> : <HiMoon className="w-5 h-5 text-indigo-600" />}
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 dark:text-white p-2 hover:bg-gray-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
+            className="md:hidden text-gray-700 dark:text-white p-2 hover:bg-indigo-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -137,30 +139,30 @@ export default function Header() {
           <div className="md:hidden mt-4 pb-4 space-y-2 glass-strong rounded-lg p-4 animate-fadeIn">
             <Link 
               href="/" 
-              className="block px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
+              className="block px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-indigo-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link 
               href="/#projects" 
-              className="block px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
+              className="block px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-indigo-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Projects
             </Link>
             <Link 
               href="/#skills" 
-              className="block px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
+              className="block px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-indigo-200/80 dark:hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Skills
             </Link>
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/pesuts" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-200/80 dark:hover:bg-white/10 rounded-lg transition-colors flex items-center gap-2"
+              className="px-4 py-2 text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-indigo-200/80 dark:hover:bg-white/10 rounded-lg transition-colors flex items-center gap-2"
               onClick={() => setIsMenuOpen(false)}
             >
               <FaGithub className="text-lg" />
@@ -174,16 +176,18 @@ export default function Header() {
               <FaEnvelope />
               Contact
             </a>
-            <div className="pt-2">
-              <button
-                onClick={() => { toggleTheme(); setIsMenuOpen(false); }}
-                aria-label="Toggle theme"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2 glass rounded-lg text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200"
-              >
-                {theme === 'dark' ? <HiSun className="w-5 h-5 text-yellow-400" /> : <HiMoon className="w-5 h-5 text-indigo-600" />}
-                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-              </button>
-            </div>
+            {mounted && (
+              <div className="pt-2">
+                <button
+                  onClick={() => { toggleTheme(); setIsMenuOpen(false); }}
+                  aria-label="Toggle theme"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2 glass rounded-lg text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:bg-indigo-200/80 dark:hover:bg-white/10 transition-all"
+                >
+                  {theme === 'dark' ? <HiSun className="w-5 h-5 text-yellow-400" /> : <HiMoon className="w-5 h-5 text-indigo-600" />}
+                  {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                </button>
+              </div>
+            )}
           </div>
         )}
       </nav>

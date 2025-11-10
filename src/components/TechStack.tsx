@@ -14,7 +14,13 @@ import {
   SiJavascript,
   SiPhp,
   SiMysql,
-  SiFirebase
+  SiFirebase,
+  SiApachespark,
+  SiApacheairflow,
+  SiGooglecloud,
+  SiLaravel,
+  SiBootstrap,
+  SiVite
 } from 'react-icons/si';
 
 const techStackData = [
@@ -34,12 +40,18 @@ const techStackData = [
   { name: 'PHP', icon: SiPhp, color: 'text-purple-400' },
   { name: 'MySQL', icon: SiMysql, color: 'text-blue-500' },
   { name: 'Firebase', icon: SiFirebase, color: 'text-orange-400' },
+  { name: 'Apache Spark', icon: SiApachespark, color: 'text-orange-500' },
+  { name: 'Apache Airflow', icon: SiApacheairflow, color: 'text-cyan-400' },
+  { name: 'Google Cloud', icon: SiGooglecloud, color: 'text-blue-400' },
+  { name: 'Laravel', icon: SiLaravel, color: 'text-red-500' },
+  { name: 'Bootstrap', icon: SiBootstrap, color: 'text-purple-500' },
+  { name: 'Vite', icon: SiVite, color: 'text-purple-500' },
 ];
 
 export default function TechStack() {
   return (
     <div className="max-w-5xl mx-auto glass-strong rounded-2xl p-8">
-      <p className="text-gray-600 dark:text-white mb-8 text-sm uppercase tracking-wider text-center">
+      <p className="text-indigo-600 dark:text-white mb-8 text-2xl font-bold text-shadow-lg/50 text-shadow-neutral-500 uppercase tracking-wider text-center">
         Tech Stack I Work With
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">

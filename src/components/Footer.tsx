@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="https://github.com/yourusername" 
+                href="https://github.com/pesuts" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110"
@@ -26,7 +26,7 @@ export default function Footer() {
                 <FaGithub className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com/in/yourusername" 
+                href="https://linkedin.com/in/daniel-sinaga" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110"
@@ -64,7 +64,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:translate-x-1 inline-flex items-center gap-2 transition-all">
+                <a href="https://github.com/pesuts" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 hover:translate-x-1 inline-flex items-center gap-2 transition-all">
                   <HiArrowRight className="text-sm" /> GitHub
                 </a>
               </li>
