@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HiArrowLeft, HiExternalLink, HiCode } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { projects } from '@/data/projects';
-import ImageViewer from '@/components/ImageViewer';
 import { 
   SiReact, SiNextdotjs, SiNodedotjs, SiExpress, SiMongodb, 
   SiPostgresql, SiTypescript, SiJavascript, SiTailwindcss,
@@ -17,9 +15,7 @@ import {
   SiVite, SiJest, SiAxios, SiReactrouter
 } from 'react-icons/si';
 
-type IconType = React.ComponentType<{ className?: string }>;
-
-const techIcons: { [key: string]: IconType } = {
+const techIcons: { [key: string]: any } = {
   'React': SiReact,
   'Next.js': SiNextdotjs,
   'Node.js': SiNodedotjs,
@@ -62,15 +58,8 @@ export default function ProjectDetailPage() {
   const params = useParams();
   const router = useRouter();
   const projectId = params.id as string;
-  const [viewerOpen, setViewerOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const project = projects.find(p => p.id === projectId);
-
-  const openViewer = (index: number) => {
-    setCurrentImageIndex(index);
-    setViewerOpen(true);
-  };
 
   if (!project) {
     return (
@@ -157,15 +146,11 @@ export default function ProjectDetailPage() {
               <span className="text-3xl">📸</span>
               Screenshots
             </h2>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mb-6">
-              Klik gambar untuk melihat dalam ukuran penuh
-            </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {project.screenshots.map((screenshot, index) => (
-                <button
+                <div 
                   key={index}
-                  onClick={() => openViewer(index)}
-                  className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 hover:scale-105 transition-transform cursor-pointer group"
+                  className="relative aspect-video rounded-xl overflow-hidden bg-gray-200 dark:bg-gray-800 hover:scale-105 transition-transform"
                 >
                   <Image
                     src={screenshot}
@@ -173,24 +158,10 @@ export default function ProjectDetailPage() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                    <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold text-lg">
-                      🔍 Lihat Gambar
-                    </span>
-                  </div>
-                </button>
+                </div>
               ))}
             </div>
           </div>
-        )}
-
-        {/* Image Viewer Modal */}
-        {viewerOpen && project.screenshots && (
-          <ImageViewer
-            images={project.screenshots}
-            currentIndex={currentImageIndex}
-            onClose={() => setViewerOpen(false)}
-          />
         )}
 
         {/* Technologies */}
