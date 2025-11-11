@@ -313,12 +313,6 @@ export const projects: Project[] = [
     category: 'backend',
     githubUrl: 'https://github.com/pesuts/openmusicapiv3-main',
     screenshots: [
-      'https://raw.githubusercontent.com/pesuts/openmusicapiv3-main/refs/heads/main/screenshots/api-endpoints.png',
-      'https://raw.githubusercontent.com/pesuts/openmusicapiv3-main/refs/heads/main/screenshots/postman-tests.png',
-      'https://raw.githubusercontent.com/pesuts/openmusicapiv3-main/refs/heads/main/screenshots/playlist-collaboration.png',
-      'https://raw.githubusercontent.com/pesuts/openmusicapiv3-main/refs/heads/main/screenshots/jwt-authentication.png',
-      'https://raw.githubusercontent.com/pesuts/openmusicapiv3-main/refs/heads/main/screenshots/redis-cache.png',
-      'https://raw.githubusercontent.com/pesuts/openmusicapiv3-main/refs/heads/main/screenshots/export-feature.png'
     ],
     features: [
       'Manajemen lagu dan album',

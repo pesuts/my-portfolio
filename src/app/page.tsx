@@ -143,7 +143,7 @@ export default function Home() {
 
                 {/* Description */}
                 <p className="text-gray-700 dark:text-white text-base sm:text-lg leading-relaxed max-w-2xl lg:max-w-2xl">
-                  Passionate about building modern web applications, mobile apps, and scalable backend systems. 
+                  Passionate about building modern web applications, software development, and scalable backend systems. 
                   Transforming ideas into elegant solutions with cutting-edge technologies.
                 </p>
 
