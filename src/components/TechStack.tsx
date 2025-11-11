@@ -5,6 +5,7 @@ import {
   SiNodedotjs, 
   SiExpress, 
   SiFlutter, 
+  SiKotlin, 
   SiPostgresql, 
   SiMongodb, 
   SiDocker, 
@@ -25,7 +26,7 @@ import {
 
 const techStackData = [
   { name: 'React', icon: SiReact, color: 'text-cyan-400' },
-  { name: 'Next.js', icon: SiNextdotjs, color: 'text-white' },
+  { name: 'Next.js', icon: SiNextdotjs, color: 'text-gray-900' },
   { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-400' },
   { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-500' },
   { name: 'Express', icon: SiExpress, color: 'text-gray-300' },
@@ -38,6 +39,7 @@ const techStackData = [
   { name: 'Python', icon: SiPython, color: 'text-yellow-400' },
   { name: 'JavaScript', icon: SiJavascript, color: 'text-yellow-300' },
   { name: 'PHP', icon: SiPhp, color: 'text-purple-400' },
+  { name: 'Kotlin', icon: SiKotlin, color: 'text-purple-400' },
   { name: 'MySQL', icon: SiMysql, color: 'text-blue-500' },
   { name: 'Firebase', icon: SiFirebase, color: 'text-orange-400' },
   { name: 'Apache Spark', icon: SiApachespark, color: 'text-orange-500' },

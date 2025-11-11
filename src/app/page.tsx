@@ -96,7 +96,7 @@ export default function Home() {
                     <FaGithub className="w-6 h-6 text-gray-900 dark:text-white group-hover:scale-110 transition-transform" />
                   </a>
                   <a 
-                    href="https://linkedin.com/in/yourusername" 
+                    href="https://linkedin.com/in/daniel-sinaga" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="w-14 h-14 glass rounded-full flex items-center justify-center hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all hover:scale-110 group"
@@ -188,22 +188,22 @@ export default function Home() {
               <TechStack />
             </div>
           </div>
-        </div>
 
-        {/* Scroll indicator - hilang saat scroll */}
-        {showScrollIndicator && (
-          <a 
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors z-20"
-            aria-label="Scroll to projects"
-          >
-            <HiChevronDown className="w-8 h-8 text-gray-500 dark:text-white" />
-          </a>
-        )}
+          {/* Scroll indicator - hilang saat scroll */}
+          {showScrollIndicator && (
+            <a 
+              href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+              aria-label="Scroll to projects"
+            >
+              <HiChevronDown className="w-8 h-8 text-gray-500 dark:text-white" />
+            </a>
+          )}
+        </div>
       </section>
 
       {/* Projects Section */}
@@ -269,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section id="skills" className="container mx-auto px-4 py-20">
+      <section id="skills" className="container mx-auto px-4 pt-8">
         <div className="glass-strong rounded-3xl p-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center gradient-text">
             Portfolio Statistics

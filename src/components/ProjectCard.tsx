@@ -2,9 +2,10 @@
 
 import { Project } from '@/types/project';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { SiGithub } from 'react-icons/si';
-import { HiExternalLink, HiCheckCircle, HiClock } from 'react-icons/hi';
+import { HiExternalLink, HiCheckCircle, HiClock, HiArrowRight } from 'react-icons/hi';
 import { 
   SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiNodedotjs, 
   SiExpress, SiNestjs, SiFlutter, SiDart, SiKotlin, SiAndroid,
@@ -12,7 +13,9 @@ import {
   SiDocker, SiGit, SiTailwindcss, SiBootstrap, SiHtml5, SiCss3,
   SiPhp, SiPython, SiLaravel, SiVuedotjs, SiAngular, SiJquery,
   SiVercel, SiNetlify, SiHeroku, SiAmazonwebservices, SiGooglecloud,
-  SiApachespark, SiApacheairflow, SiVite, SiJest, SiAxios
+  SiApachespark, SiApacheairflow, SiVite, SiJest, SiAxios, SiSwagger,
+  SiKnexdotjs, SiFigma, SiGooglemaps  
+  
 } from 'react-icons/si';
 import { IconType } from 'react-icons';
 
@@ -42,7 +45,7 @@ const categoryIcons = {
 const techIcons: Record<string, { icon: IconType; color: string }> = {
   'React': { icon: SiReact, color: 'text-cyan-400' },
   'React.js': { icon: SiReact, color: 'text-cyan-400' },
-  'Next.js': { icon: SiNextdotjs, color: 'text-white' },
+  'Next.js': { icon: SiNextdotjs, color: 'text-gray-800' },
   'TypeScript': { icon: SiTypescript, color: 'text-blue-400' },
   'JavaScript': { icon: SiJavascript, color: 'text-yellow-400' },
   'Node.js': { icon: SiNodedotjs, color: 'text-green-500' },
@@ -51,16 +54,21 @@ const techIcons: Record<string, { icon: IconType; color: string }> = {
   'NestJS': { icon: SiNestjs, color: 'text-red-500' },
   'Flutter': { icon: SiFlutter, color: 'text-blue-400' },
   'Dart': { icon: SiDart, color: 'text-blue-400' },
+  'Knex.js': { icon: SiKnexdotjs , color: 'text-orange-700' },
   'Kotlin': { icon: SiKotlin, color: 'text-purple-500' },
   'Android': { icon: SiAndroid, color: 'text-green-500' },
   'PostgreSQL': { icon: SiPostgresql, color: 'text-blue-500' },
   'MongoDB': { icon: SiMongodb, color: 'text-green-500' },
   'MySQL': { icon: SiMysql, color: 'text-blue-500' },
+  'Swagger': { icon: SiSwagger , color: 'text-green-400' },
   'SQLite': { icon: SiSqlite, color: 'text-blue-400' },
   'Redis': { icon: SiRedis, color: 'text-red-500' },
   'Firebase': { icon: SiFirebase, color: 'text-orange-400' },
+  'Firestore': { icon: SiFirebase, color: 'text-orange-400' },
   'Docker': { icon: SiDocker, color: 'text-blue-400' },
   'Git': { icon: SiGit, color: 'text-orange-500' },
+  'Google Maps': { icon: SiGooglemaps, color: 'text-green-400' },
+  'Google Maps API': { icon: SiGooglemaps, color: 'text-green-400' },
   'Tailwind CSS': { icon: SiTailwindcss, color: 'text-cyan-400' },
   'TailwindCSS': { icon: SiTailwindcss, color: 'text-cyan-400' },
   'Bootstrap': { icon: SiBootstrap, color: 'text-purple-500' },
@@ -96,6 +104,7 @@ const techIcons: Record<string, { icon: IconType; color: string }> = {
   'DomPDF': { icon: SiPhp, color: 'text-red-400' },
   'League CSV': { icon: SiPhp, color: 'text-purple-400' },
   'Laravel UI': { icon: SiLaravel, color: 'text-red-500' },
+  'Figma': { icon: SiFigma , color: 'text-blue-500' },
 };
 
 export default function ProjectCard({ project }: ProjectCardProps) {
@@ -143,9 +152,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Content */}
       <div className="p-6 flex-1 flex flex-col">
         {/* Title */}
-        <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:gradient-text transition-all">
-          {project.title}
-        </h3>
+        <Link
+            href={`/projects/${project.id}`}
+          >
+          <h3 className="text-xl font-bold mb-3 text-gray-700 hover:text-gray-950 dark:text-white dark:hover:text-indigo-400 group-hover:gradient-text transition-all">
+            {project.title}
+          </h3>
+        </Link>
 
         {/* Description */}
         <p className="text-gray-600 dark:text-white text-sm mb-4 line-clamp-2 leading-relaxed">
@@ -203,29 +216,41 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         )}
 
         {/* Links */}
-        <div className="flex gap-3 mt-auto pt-4">
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 px-4 py-2.5 glass text-gray-900 dark:text-white rounded-xl hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
+        <div className="flex flex-col gap-2 mt-auto pt-4">
+          {/* View Details Button */}
+          <Link
+            href={`/projects/${project.id}`}
+            className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg hover:shadow-blue-500/50 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
           >
-            <SiGithub 
-                className={`text-xl red group-hover:scale-125 transition-transform duration-300`}
-            />
-            GitHub
-          </a>
-          {project.liveUrl && (
+            View Details
+            <HiArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </Link>
+
+          {/* GitHub & Live Links */}
+          <div className="flex gap-2">
             <a
-              href={project.liveUrl}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg hover:shadow-blue-500/50 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
+              className="flex-1 px-4 py-2.5 glass text-gray-900 dark:text-white rounded-xl hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
             >
-              <HiExternalLink className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
-              Live
+              <SiGithub 
+                  className={`text-xl red group-hover:scale-125 transition-transform duration-300`}
+              />
+              GitHub
             </a>
-          )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 px-4 py-2.5 glass text-gray-900 bg-indigo-400 dark:text-white rounded-xl hover:bg-gray-200/80 dark:hover:bg-white/20 transition-all text-center text-sm font-medium flex items-center justify-center gap-2 group/btn"
+              >
+                <HiExternalLink className="w-4 h-4 group-hover/btn:scale-110 transition-transform" />
+                Live
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
